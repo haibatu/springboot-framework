@@ -1,0 +1,4 @@
+server:
+  port: 8080 #设置端口号
+  servlet:
+    context-path: /test

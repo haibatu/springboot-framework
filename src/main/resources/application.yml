@@ -1,0 +1,43 @@
+#同一目录下的application和bootstrap
+  #bootstrap优先级高于application
+  #bootstrap用于应用程序上下文的引导，由父ApplicationContext加载
+  #bootstrap是系统级别的配置，application是应用级别配置
+
+#不同位置的配置文件加载顺序
+  #file:./config/  -优先级最高（项目根目录下）
+  #file:./    -优先级第二（项目根目录下）
+  #classpath:/config/     -优先级第三（项目resource/config下）
+  #classpath:/    -优先级第四（项目resource目录下）
+
+spring:
+  application:
+    name: springboot-framework #项目名称
+#  profiles:
+#    active: prod #配置使用哪个环境的yml文件
+server:
+  port: 8080 #设置端口号
+  servlet:
+    context-path: /framework #设置项目前缀，   localhost:8080/framework/testcontroller/test
+
+#springboot监控
+management:
+#  endpoint:
+#    shutdown:
+#      enabled: true #最特殊的端点   改端点是endpoint，其他的都是endpoints
+  endpoints:
+    web:
+      exposure:
+        include: "*" #打开所有监控端点
+
+#get info端点配置信息
+info:
+  app:
+    name: springboot-framework
+#浏览器输入
+#localhost:8080/framework/actuator/info  查看自己配置信息
+#localhost:8080/framework/actuator/beans  查看应用中bean信息
+#localhost:8080/framework/actuator/mappings  查看应用中url信息
+#localhost:8080/framework/actuator/health  查看健康值
+#localhost:8080/framework/actuator/threaddump  查看当前线程活动快照
+#localhost:8080/framework/actuator/shutdown  关闭应用
+#自定已端点 DateTimeEndPoint.java
