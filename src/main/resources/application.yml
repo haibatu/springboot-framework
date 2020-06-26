@@ -15,7 +15,7 @@ spring:
 #  profiles:
 #    active: prod #配置使用哪个环境的yml文件
 server:
-  port: 8080 #设置端口号
+  port: 9090 #设置端口号
   servlet:
     context-path: /framework #设置项目前缀，   localhost:8080/framework/testcontroller/test
 
